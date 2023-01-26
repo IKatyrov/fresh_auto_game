@@ -53,6 +53,7 @@ public class CarController : MonoBehaviour
             { 
                 _animator.SetBool(o.type.ToString(), true);
                 ObstacleGenerator.Instance.Stop();
+                LeaderBoard.Instance.Show();
             }
             if(o.type == ObstacleType.Coin)
             {

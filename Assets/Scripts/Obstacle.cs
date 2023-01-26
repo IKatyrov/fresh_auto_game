@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     private Rigidbody2D rb;
     public ObstacleType type;
 
+    public static bool IsWorking = false;
+
     private void Start()
     {
         generator = ObstacleGenerator.Instance;
@@ -21,6 +23,11 @@ public class Obstacle : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsWorking)
+        {
+            return;
+        }
+
         if(direction != null)
         {
             var step = generator.Speed * Time.deltaTime * -direction.up;
